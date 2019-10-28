@@ -1,2 +1,3 @@
 node_modules/
-fir-basics-9f212-firebase-adminsdk-ogu0b-9ef79e4de5.json
+# dotenv environment variables file
+.env

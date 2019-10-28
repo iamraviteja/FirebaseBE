@@ -1,15 +1,16 @@
 const functions = require('firebase-functions');
 const firebase = require('firebase');
+require('dotenv').config();
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyC4SBa509su4wRQNu2piX1ueMlPiBDADP4",
+    apiKey: process.env.API_KEY,
     authDomain: "fir-basics-9f212.firebaseapp.com",
     databaseURL: "https://fir-basics-9f212.firebaseio.com",
     projectId: "fir-basics-9f212",
     storageBucket: "fir-basics-9f212.appspot.com",
-    messagingSenderId: "460749756349",
-    appId: "1:460749756349:web:2a3acc91fabe47e995e4d4"
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.API_ID
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
