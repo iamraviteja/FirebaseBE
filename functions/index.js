@@ -1,6 +1,6 @@
 const functions = require('firebase-functions');
 const firebase = require('firebase');
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
