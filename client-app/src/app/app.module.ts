@@ -11,10 +11,15 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 
-import { NbCheckboxModule, NbAlertModule, NbCardModule, NbThemeModule, NbLayoutModule, NbTabsetModule, NbInputModule, NbButtonModule  } from '@nebular/theme';
+import { NbIconModule, NbMenuModule, NbSidebarModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbAlertModule, NbCardModule, NbThemeModule, NbLayoutModule, NbTabsetModule, NbInputModule, NbButtonModule  } from '@nebular/theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
+import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
+
+import { AuthGuard } from './services/auth-guard.service';
+import { ProfileComponent } from './profile/profile.component';
+import { TrackingComponent } from './tracking/tracking.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -24,7 +29,10 @@ import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    LandingComponent
+    LandingComponent,
+    ProfileComponent,
+    TrackingComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -33,19 +41,32 @@ import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
     AppRoutingModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          baseEndpoint: '',
+          baseEndpoint: 'https://us-central1-fir-basics-9f212.cloudfunctions.net/api',
+          token: {
+            class: NbAuthJWTToken,
+            key: 'userToken'
+          },
           login: {
-            // ...
-            endpoint: '/api/auth/login',
+            endpoint: '/auth/login',
+            redirect: {
+              success: '/home', 
+              failure: null, 
+            }
           },
           register: {
-            // ...
-            endpoint: '/api/auth/register',
+            endpoint: '/auth/register',
+            redirect: {
+              success: '/home',
+              failure: null, 
+            }
           },
+          
         }),
       ],
       forms: {},
@@ -57,9 +78,12 @@ import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
     NbInputModule,
     NbButtonModule,
     NbAlertModule,
-    NbCheckboxModule
+    NbCheckboxModule,
+    NbUserModule,
+    NbActionsModule,
+    NbIconModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

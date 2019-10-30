@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { db } = require('./utils/admin');
 
 /**
@@ -9,6 +10,7 @@ const auth = require('./routes/authentication');
 const chatbot = require('./routes/chatbot');
 
 const server = express();
+server.use(cors());
 
 /**
  *  Use routes
