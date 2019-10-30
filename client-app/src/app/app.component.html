@@ -1,6 +1,16 @@
-<h1>Angular Router</h1>
-<nav>
-  <a routerLink="/register" routerLinkActive="active">Register</a>
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-</nav>
-<router-outlet></router-outlet>
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <!-- Insert header here -->
+    <h6>Virtual Health</h6>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+  <!-- Insert footer here -->
+  </nb-layout-footer>
+
+</nb-layout>
