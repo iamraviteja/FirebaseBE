@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LandingComponent } from './landing/landing.component';
 
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 import {
   NbAuthComponent,
   NbLoginComponent,
@@ -18,15 +21,15 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: NbLoginComponent,
+        component: LoginComponent,
       },
       {
         path: 'login',
-        component: NbLoginComponent,
+        component: LoginComponent,
       },
       {
         path: 'register',
-        component: NbRegisterComponent,
+        component: RegisterComponent,
       },
       {
         path: 'logout',
@@ -34,10 +37,9 @@ const routes: Routes = [
       }
     ],
   },
-  { path: 'login', component: LandingComponent },
   { path: 'home', component: HomeComponent },
   { path: '',
-    redirectTo: '/login',
+    redirectTo: '/auth/login',
     pathMatch: 'full'
   },
 ];

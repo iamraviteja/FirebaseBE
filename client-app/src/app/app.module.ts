@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -10,7 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 
-import { NbCardModule, NbThemeModule, NbLayoutModule, NbTabsetModule, NbInputModule, NbButtonModule  } from '@nebular/theme';
+import { NbCheckboxModule, NbAlertModule, NbCardModule, NbThemeModule, NbLayoutModule, NbTabsetModule, NbInputModule, NbButtonModule  } from '@nebular/theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
@@ -27,6 +28,7 @@ import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -53,7 +55,9 @@ import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
     NbCardModule,
     NbTabsetModule,
     NbInputModule,
-    NbButtonModule
+    NbButtonModule,
+    NbAlertModule,
+    NbCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
