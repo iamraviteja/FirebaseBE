@@ -9,8 +9,7 @@ import { NbSidebarService } from '@nebular/theme';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  user = {};
-  token:any = false;
+  
   items = [
     {
       title: 'Home',
@@ -39,30 +38,12 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor(private authService: NbAuthService, private http: HttpClient, private sidebarService: NbSidebarService) { 
-    this.authService.onTokenChange()
-    .subscribe((token: NbAuthJWTToken) => {
-
-      if (token.isValid()) {
-        this.user = token.getPayload(); 
-        this.token = token.toString();
-      }
-
-    });
+  constructor(private sidebarService: NbSidebarService) { 
+    
   }
 
   ngOnInit() {
-    if(this.token){
-      this.http.get(`https://us-central1-fir-basics-9f212.cloudfunctions.net/api/posts`, {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/xml',
-          'Authorization': `Bearer ${this.token}`
-        })
-      })
-      .subscribe(data =>{
-        console.log(data);
-      });
-    }
+    
   }
 
   toggle() {

@@ -21,8 +21,8 @@ server.use(cors());
 server.use('/posts', posts);
 server.use('/auth', auth);
 server.use('/chat', chatbot);
-server.use('/profile', chatbot);
-server.use('/weightdata', chatbot);
-server.use('/heartdata', chatbot);
+server.use('/profile', profile);
+server.use('/weightdata', weightdata);
+server.use('/heartdata', heartdata);
 
 module.exports = { server };

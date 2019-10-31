@@ -12,8 +12,8 @@ const authentication = require('../../utils/authentication');
 router.get('/', authentication, (req, res) => {
     let { userHandle } = req.user;
     db.collection('HeartData')
-    .orderBy('createdAt', 'desc')
     .where('userHandle', '==', userHandle)
+    .orderBy('createdAt')
     .get()
     .then(data =>{
         let posts = [];
