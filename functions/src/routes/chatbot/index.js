@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { db } = require('../../utils/admin');
-const intentMapObj = require('./intentmap');
 
 /**
  *  Dialogflow API
@@ -23,6 +22,7 @@ router.post('/', authentication, (req, res) => {
     sessionClient.detectIntent({ session, queryInput})
     .then(data => {
         let queryResult = data[0].queryResult;
+
         return res.status(200).json({ queryResult });
     })
     .catch(err => {
@@ -36,14 +36,37 @@ router.post('/webhook', (req, res) => {
     const agent = new WebhookClient({ request:req, response:res });
     const result = req.body.queryResult;
 
-    let intentMap = new Map();
+    async function getHealthAttr(agent) {
+        let session = req.body.session.split('/');
+        let userHandle = session[(session.length - 1)];
+        let param = result.parameters.healthattr;
+        let heartData;
 
-    for (const key in intentMapObj) {
-        if (intentMapObj.hasOwnProperty(key)) {
-            const fn = intentMapObj[key](agent, result);
-            intentMap.set(key, fn);
+        let textData = await db.collection('HeartData')
+        .where('userHandle', '==', userHandle)
+        .orderBy('createdAt')
+        .limit(1)
+        .get();
+
+        if(param.includes('bp') || param.includes('blood pressure') || param.includes('blood')){
+            heartData = 'latest blood pressure '+textData.docs[0].data().syspressure+'/'+textData.docs[0].data().dispressure;
+        }else{
+            heartData = 'latest heart rate '+textData.docs[0].data().heartrate;
         }
+
+        let text = 'Hey '+ userHandle + ' your ' + heartData;
+
+        agent.add(text);
+        
     }
+
+    function getPosts(agent) {
+        agent.add('get my posts....');
+    }
+
+    let intentMap = new Map();
+    intentMap.set('GET_POSTS', getPosts);
+    intentMap.set('GET_HEART_RATE', getHealthAttr);
 
     agent.handleRequest(intentMap);
 });

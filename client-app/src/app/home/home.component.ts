@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit {
       icon: { icon: 'bar-chart-outline', pack: 'eva' },
       link: '/home/tracking',
     },
-    {
-      title: 'Chat',
-      icon: { icon: 'message-square-outline', pack: 'eva' },
-      link: '/home/chat',
-    },
+    // {
+    //   title: 'Chat',
+    //   icon: { icon: 'message-square-outline', pack: 'eva' },
+    //   link: '/home/chat',
+    // },
     {
       title: 'Logout',
       icon: 'unlock-outline',

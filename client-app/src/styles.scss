@@ -41,3 +41,11 @@ $client-app-theme: mat-light-theme($client-app-primary, $client-app-accent, $cli
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.chat-with-me-icon {
+  position: fixed;
+  bottom: 10px;
+  right: 30px;
+  z-index: 99;
+  width: 60px;
+}
