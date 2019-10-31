@@ -8,6 +8,9 @@ const { db } = require('./utils/admin');
 const posts = require('./routes/posts');
 const auth = require('./routes/authentication');
 const chatbot = require('./routes/chatbot');
+const profile = require('./routes/profile');
+const weightdata = require('./routes/weightdata');
+const heartdata = require('./routes/heartdata');
 
 const server = express();
 server.use(cors());
@@ -18,5 +21,8 @@ server.use(cors());
 server.use('/posts', posts);
 server.use('/auth', auth);
 server.use('/chat', chatbot);
+server.use('/profile', chatbot);
+server.use('/weightdata', chatbot);
+server.use('/heartdata', chatbot);
 
 module.exports = { server };
