@@ -14,7 +14,7 @@ const { WebhookClient } = require('dialogflow-fulfillment');
  */
 const authentication = require('../../utils/authentication');
 
-router.get('/', authentication, (req, res) => {
+router.post('/', authentication, (req, res) => {
     const { queryInput } = req.body;
     const sessionId = req.user.userHandle;
     const sessionClient = new SessionsClient();

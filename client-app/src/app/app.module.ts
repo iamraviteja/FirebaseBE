@@ -64,6 +64,7 @@ import { CalendarRangeComponentComponent } from './calendar-range-component/cale
     NbThemeModule.forRoot({ name: 'default' }),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
+    NbChatModule.forRoot(),
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup({
@@ -102,8 +103,7 @@ import { CalendarRangeComponentComponent } from './calendar-range-component/cale
     NbCheckboxModule,
     NbUserModule,
     NbActionsModule,
-    NbIconModule,
-    NbChatModule
+    NbIconModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
