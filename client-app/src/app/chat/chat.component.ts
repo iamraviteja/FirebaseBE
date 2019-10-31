@@ -52,13 +52,18 @@ export class ChatComponent implements OnInit {
     });
 
     this.chatService.reply(event.message, this.token)
-    .subscribe(data =>{
-      console.log(data);
+    .subscribe((data:any) =>{
+      let { fulfillmentText } = data.queryResult;
+      this.messages.push({
+        text: fulfillmentText,
+        reply: false,
+        date: new Date(),
+        user: {
+          name: 'Bot',
+          avatar: 'https://icon-library.net/images/bot-icon/bot-icon-7.jpg',
+        },
+      });
     });
-
-    // if (botReply) {
-    //   setTimeout(() => { this.messages.push(botReply); }, 500);
-    // }
 
   }
 

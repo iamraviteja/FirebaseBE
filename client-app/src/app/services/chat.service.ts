@@ -19,7 +19,7 @@ export class ChatService {
 
   reply(message: string, token: string) {
 
-    return this.http.post(`http://localhost:5001/fir-basics-9f212/us-central1/api/chat`,{
+    return this.http.post(`https://us-central1-fir-basics-9f212.cloudfunctions.net/api/chat`,{
         'queryInput':{
           'text':{
             'text':message,
