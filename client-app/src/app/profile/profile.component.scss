@@ -1,0 +1,44 @@
+.form-input-one {
+    margin: 1rem;
+}
+
+.blood-pressure-input {
+    display: flex;
+    justify-items: flex-start;
+}
+
+.blood-pressure-systole-input, .blood-pressure-diastole-input {
+    width: 30rem;
+}
+
+.blood-pressure-diastole-input {
+    margin-left: 2rem;
+}
+
+mat-form-field {
+    margin-left: 1rem;
+    width: 50%;
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+
+::placeholder {
+    color: white;
+}
+
+.hint-text {
+    font-style: italic;
+    font-size: 11px;
+    margin-left: 0.5rem;
+    color: green;
+}
+
+.save-profile-info {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.save-profile-info-btn {
+    width: 35rem;
+}

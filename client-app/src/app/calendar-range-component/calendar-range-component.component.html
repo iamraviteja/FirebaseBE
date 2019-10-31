@@ -1,0 +1,7 @@
+<label class="select-date-range-label">Select the range between which you need to capture the data:</label>
+<div class="calendar-range">
+    <nb-calendar-range [(range)]="range"></nb-calendar-range>
+</div>
+<div class="selected-date-range-label">
+    <label>Selected range: {{ range.start | date }} - {{ range.end | date }}</label>
+</div>

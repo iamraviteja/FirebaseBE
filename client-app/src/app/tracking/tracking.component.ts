@@ -10,6 +10,51 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class TrackingComponent implements OnInit {
   user = {};
   token:any = false;
+  heartDataMeasured: any[] = [
+    { CalendarDay: '', BloodPressure: '', PulsePressure: '', HeartRate: '' }
+  ];
+  chartData: any[] = [];
+  weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  getWidth() : any {
+    if (document.body.offsetWidth < 850) {
+      return '90%';
+    }
+    return 850;
+  }
+
+  padding: any = { left: 5, top: 5, right: 5, bottom: 5 };
+  titlePadding: any = { left: 90, top: 0, right: 0, bottom: 10 };
+  
+  xAxis: any =
+  {
+      dataField: 'CalendarDay',
+      showGridLines: true
+  };
+
+  seriesGroups: any[] =
+  [
+      {
+          type: 'column',
+          columnsGapPercent: 50,
+          seriesGapPercent: 0,
+          valueAxis:
+          {
+              unitInterval: 50,
+              minValue: 50,
+              maxValue: 200,
+              displayValueAxis: true,
+              description: 'Threshold',
+              axisSize: 'auto',
+              tickMarksColor: '#888888'
+          },
+          series: [
+              { dataField: 'SystolicBloodPressure', displayText: 'Systolic Blood Pressure' },
+              { dataField: 'DiastoleBloodPressure', displayText: 'Diastole Blood Pressure' },
+              { dataField: 'HeartRate', displayText: 'Heart Rate' }
+          ]
+      }
+  ];
 
   constructor(private authService: NbAuthService, private http: HttpClient) { 
     this.authService.onTokenChange()
@@ -42,11 +87,29 @@ export class TrackingComponent implements OnInit {
           'Authorization': `Bearer ${this.token}`
         })
       })
-      .subscribe(data =>{
-        console.log(data);
+      .subscribe(data => {
+        this.heartDataMeasured = new Array(data);
+        this.chartData = new Array();
+        for (let count = 0 ; count < this.heartDataMeasured[0].length ; count++) {
+          this.chartData.push(this.constructObjectForDataDepiction(this.heartDataMeasured[0][count]));
+        }
+        console.log(this.chartData);
       });
       
     }
+  }
+
+  constructObjectForDataDepiction(heartDataObjectFromService) {
+    let calendarDay: String = this.weekDays[new Date(heartDataObjectFromService.data.createdAt).getDay()];
+    let systolicBloodPressure: String = heartDataObjectFromService.data.syspressure;
+    let diastoleBloodPressure: String = heartDataObjectFromService.data.dispressure;
+    let heartRate: String = heartDataObjectFromService.data.heartrate;
+    return { 
+      CalendarDay: calendarDay, 
+      SystolicBloodPressure: systolicBloodPressure, 
+      DiastoleBloodPressure: diastoleBloodPressure, 
+      HeartRate: heartRate 
+    };
   }
 
 }

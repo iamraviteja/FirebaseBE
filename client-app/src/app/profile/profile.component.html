@@ -1,1 +1,111 @@
-<p>profile works!</p>
+<nb-layout>
+    <nb-layout-column>
+        <h3>Update your personal information here</h3>
+        <label class="hint-text">*This will be a one-time update. No PII is captured and the details saved below will not be misused by any means.</label>
+        <div>
+            <nb-card>
+                <nb-card-body class="example-items-col">
+                    <label class="form-input-one">PERSONAL INFORMATION:</label>
+                    <div class="first-name-input form-input-one">
+                        <input type="text" nbInput fullWidth shape="semi-round" placeholder="Enter First Name">
+                    </div>
+                    <div class="last-name-input form-input-one">
+                        <input type="text" nbInput fullWidth shape="semi-round" placeholder="Enter Last Name">
+                    </div>
+                    <div class="age-input form-input-one">
+                        <nb-select placeholder="Select Age" [(ngModel)]="selectedAge">
+                            <nb-option-group title="Young Age">
+                                <nb-option value="1">1-10 yrs</nb-option>
+                                <nb-option value="2">11-20 yrs</nb-option>
+                            </nb-option-group>
+                        
+                            <nb-option-group title="Middle Age">
+                                <nb-option value="21">21-30 yrs</nb-option>
+                                <nb-option value="22">31-40 yrs</nb-option>
+                                <nb-option value="23">41-50 yrs</nb-option>
+                                <nb-option value="23">51-60 yrs</nb-option>
+                            </nb-option-group>
+                        
+                            <nb-option-group title="Elderly Age">
+                                <nb-option value="31">61-70 yrs</nb-option>
+                                <nb-option value="32">> 70 yrs</nb-option>
+                            </nb-option-group>
+                        </nb-select>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+
+            <nb-card>
+                <nb-card-body class="example-items-col">
+                    <label class="form-input-one">BASIC MEDICAL INFORMATION:</label>
+                    <div class="height-input form-input-one">
+                        <nb-select placeholder="Height" fullwidth [(ngModel)]="selectedWeight">
+                            <nb-option value="1">Shorter than 3ft</nb-option>
+                            <nb-option value="2">Between 3ft and 4ft</nb-option>
+                            <nb-option value="3">Between 4ft and 5ft</nb-option>
+                            <nb-option value="4">Between 5ft and 6ft</nb-option>
+                            <nb-option value="4">Taller than 6ft</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="weight-input form-input-one">
+                        <nb-select placeholder="Weight" fullwidth [(ngModel)]="selectedWeight">
+                            <nb-option value="1">Less than 25lbs</nb-option>
+                            <nb-option value="2">Between 25lbs to 100lbs</nb-option>
+                            <nb-option value="3">Between 100lbs to 150lbs</nb-option>
+                            <nb-option value="4">Between 150lbs to 200lbs</nb-option>
+                            <nb-option value="4">Greater than 200lbs</nb-option>
+                        </nb-select>
+                    </div>
+                    <div class="blood-pressure-input form-input-one">
+                        <input type="number" class="blood-pressure-systole-input" nbInput shape="semi-round" halfWidth placeholder="Systolic Blood Pressure (Upper Bar)" [(ngModel)]="systole">
+                        <input type="number" class="blood-pressure-diastole-input" nbInput shape="semi-round" halfWidth placeholder="Diastolic Blood Pressure (Lower Bar)" [(ngModel)]="diastole">
+                    </div>
+                </nb-card-body>
+            </nb-card>
+            
+            <nb-flip-card>
+                <nb-card-front>
+                    <nb-card accent="success">
+                        <nb-card-body>
+                            <label class="form-input-one">
+                                <span>WHAT TYPE OF CHRONIC DISEASE ARE YOU FACING RIGHT NOW?</span>
+                                <span class="hint-text">*Flip the card by clicking on the icon towards right to know more.*</span>
+                            </label>
+                            <!-- <mat-form-field class="example-full-width">
+                                <input type="text" placeholder="Enter the disease type" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                    {{option}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field> -->
+                            <nb-card>
+                                <nb-card-body>
+                                    <nb-select multiple placeholder="Enter disease(s)">
+                                    <nb-option value="1">Hypertension</nb-option>
+                                    <nb-option value="2">Asthma</nb-option>
+                                    <nb-option value="3">Diabetes</nb-option>
+                                    <nb-option value="4">Arthritis</nb-option>
+                                    </nb-select>
+                                </nb-card-body>
+                            </nb-card>
+                        </nb-card-body>
+                        </nb-card>
+                    </nb-card-front>
+                <nb-card-back>
+                    <nb-card>
+                    <nb-card-body>
+                        Few of the commonly occuring chronic diseases are suggested here for quick reference. You can select one of those options without having to enter the whole word.
+                    </nb-card-body>
+                    </nb-card>
+                </nb-card-back>
+            </nb-flip-card>
+            <div class="legal-terms">
+                <nb-checkbox status="info">I agree that the above mentioned details are legitimate and appropriate.</nb-checkbox>
+            </div>
+            <div class="save-profile-info">
+                <button class="save-profile-info-btn" halfWidth nbButton>SAVE MY DETAILS</button>
+            </div>
+        </div>
+    </nb-layout-column>
+</nb-layout>

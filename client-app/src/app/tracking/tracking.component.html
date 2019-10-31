@@ -1,1 +1,12 @@
-<p>tracking works!</p>
+<app-calendar-range-component></app-calendar-range-component>
+<label class="chart-section-label">Below is the data captured over the selected date range.</label>
+<div class="chart-section">
+    <jqxChart 
+        [width]="getWidth()" [height]="500"
+        [title]="'Heart rate measured over a week'"
+        [description]="''"
+        [showLegend]="true" [enableAnimations]="true" [padding]="padding"
+        [titlePadding]="titlePadding" [source]="chartData" [xAxis]="xAxis"
+        [seriesGroups]="seriesGroups" [colorScheme]="'scheme01'">
+    </jqxChart>
+</div>

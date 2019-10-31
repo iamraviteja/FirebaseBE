@@ -42,9 +42,7 @@ export class HomeComponent implements OnInit {
     
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   toggle() {
     this.sidebarService.toggle(false, 'left');

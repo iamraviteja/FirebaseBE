@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,15 +11,19 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 
-import { NbChatModule, NbIconModule, NbMenuModule, NbSidebarModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbAlertModule, NbCardModule, NbThemeModule, NbLayoutModule, NbTabsetModule, NbInputModule, NbButtonModule  } from '@nebular/theme';
+import { NbChatModule, NbIconModule, NbMenuModule, NbSidebarModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbAlertModule, NbCardModule, NbThemeModule, NbLayoutModule, NbTabsetModule, NbInputModule, NbButtonModule, NbSelectModule, NbCalendarRangeModule } from '@nebular/theme';
+import { CommonModule } from '@angular/common';
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatAutocompleteModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
+import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
 
 import { AuthGuard } from './services/auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { ChatComponent } from './chat/chat.component';
+import { CalendarRangeComponentComponent } from './calendar-range-component/calendar-range-component.component';
 
 
 
@@ -32,14 +36,31 @@ import { ChatComponent } from './chat/chat.component';
     LandingComponent,
     ProfileComponent,
     TrackingComponent,
-    ChatComponent
+    ChatComponent,
+    CalendarRangeComponentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    AngularFontAwesomeModule,
     BrowserAnimationsModule,
+    NbCardModule,
+    NbInputModule,
+    NbButtonModule,
+    NbSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    NbEvaIconsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    NbCalendarRangeModule,
+    jqxChartModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
