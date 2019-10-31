@@ -43,6 +43,7 @@ import { ChatComponent } from './chat/chat.component';
     NbThemeModule.forRoot({ name: 'default' }),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
+    NbChatModule.forRoot(),
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup({
@@ -81,8 +82,7 @@ import { ChatComponent } from './chat/chat.component';
     NbCheckboxModule,
     NbUserModule,
     NbActionsModule,
-    NbIconModule,
-    NbChatModule
+    NbIconModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
