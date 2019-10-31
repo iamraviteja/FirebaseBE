@@ -11,7 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 
-import { NbIconModule, NbMenuModule, NbSidebarModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbAlertModule, NbCardModule, NbThemeModule, NbLayoutModule, NbTabsetModule, NbInputModule, NbButtonModule  } from '@nebular/theme';
+import { NbChatModule, NbIconModule, NbMenuModule, NbSidebarModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbAlertModule, NbCardModule, NbThemeModule, NbLayoutModule, NbTabsetModule, NbInputModule, NbButtonModule  } from '@nebular/theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
@@ -81,7 +81,8 @@ import { ChatComponent } from './chat/chat.component';
     NbCheckboxModule,
     NbUserModule,
     NbActionsModule,
-    NbIconModule
+    NbIconModule,
+    NbChatModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
