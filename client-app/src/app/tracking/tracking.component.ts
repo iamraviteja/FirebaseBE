@@ -18,7 +18,7 @@ export class TrackingComponent implements OnInit {
 
   getWidth() : any {
     if (document.body.offsetWidth < 850) {
-      return '90%';
+      return 400;
     }
     return 850;
   }
@@ -100,7 +100,7 @@ export class TrackingComponent implements OnInit {
   }
 
   constructObjectForDataDepiction(heartDataObjectFromService) {
-    let calendarDay: String = this.weekDays[new Date(heartDataObjectFromService.data.createdAt).getDay()];
+    let calendarDay: String = new Date(heartDataObjectFromService.data.createdAt).getDate().toString();
     let systolicBloodPressure: String = heartDataObjectFromService.data.syspressure;
     let diastoleBloodPressure: String = heartDataObjectFromService.data.dispressure;
     let heartRate: String = heartDataObjectFromService.data.heartrate;

@@ -1,8 +1,7 @@
-<p>Profile page</p>
 <img src="assets/icons/chat-with-me.png" [routerLink]="['/home/chat']" class="chat-with-me-icon" />
-<!-- <nb-layout>
+<nb-layout>
     <nb-layout-column>
-        <h3>Update your personal information here</h3>
+        <h3 class="profile-header-label">Update your personal information here</h3>
         <label class="hint-text">*This will be a one-time update. No PII is captured and the details saved below will not be misused by any means.</label>
         <div>
             <nb-card>
@@ -41,7 +40,7 @@
                 <nb-card-body class="example-items-col">
                     <label class="form-input-one">BASIC MEDICAL INFORMATION:</label>
                     <div class="height-input form-input-one">
-                        <nb-select placeholder="Height" fullwidth [(ngModel)]="selectedWeight">
+                        <nb-select placeholder="Height" fullwidth [(ngModel)]="selectedHeight">
                             <nb-option value="1">Shorter than 3ft</nb-option>
                             <nb-option value="2">Between 3ft and 4ft</nb-option>
                             <nb-option value="3">Between 4ft and 5ft</nb-option>
@@ -59,8 +58,10 @@
                         </nb-select>
                     </div>
                     <div class="blood-pressure-input form-input-one">
-                        <input type="number" class="blood-pressure-systole-input" nbInput shape="semi-round" halfWidth placeholder="Systolic Blood Pressure (Upper Bar)" [(ngModel)]="systole">
-                        <input type="number" class="blood-pressure-diastole-input" nbInput shape="semi-round" halfWidth placeholder="Diastolic Blood Pressure (Lower Bar)" [(ngModel)]="diastole">
+                        <input type="number" class="blood-pressure-systole-input" nbInput shape="semi-round" fullwidth placeholder="Systolic Blood Pressure" [(ngModel)]="systole">
+                    </div>
+                    <div class="blood-pressure-input form-input-one">
+                        <input type="number" class="blood-pressure-diastole-input" nbInput shape="semi-round" fullwidth placeholder="Diastolic Blood Pressure" [(ngModel)]="diastole">
                     </div>
                 </nb-card-body>
             </nb-card>
@@ -70,17 +71,17 @@
                     <nb-card accent="success">
                         <nb-card-body>
                             <label class="form-input-one">
-                                <span>WHAT TYPE OF CHRONIC DISEASE ARE YOU FACING RIGHT NOW?</span>
-                                <span class="hint-text">*Flip the card by clicking on the icon towards right to know more.*</span>
+                                <span class="type-of-chronic-disease-label">WHAT TYPE OF CHRONIC DISEASE ARE YOU FACING RIGHT NOW?</span>
+                                <p class="hint-text">*Flip the card by clicking on the icon towards right to know more.*</p>
                             </label>
-                            <mat-form-field class="example-full-width">
+                            <!-- <mat-form-field class="example-full-width">
                                 <input type="text" placeholder="Enter the disease type" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
                                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                                     {{option}}
                                     </mat-option>
                                 </mat-autocomplete>
-                            </mat-form-field>
+                            </mat-form-field> -->
                             <nb-card>
                                 <nb-card-body>
                                     <nb-select multiple placeholder="Enter disease(s)">
@@ -110,4 +111,4 @@
             </div>
         </div>
     </nb-layout-column>
-</nb-layout> -->
+</nb-layout>

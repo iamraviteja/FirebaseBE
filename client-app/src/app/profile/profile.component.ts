@@ -14,6 +14,11 @@ export class ProfileComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['Hypertension', 'Blood Pressure', 'Asthma'];
   filteredOptions: Observable<string[]>;
+  selectedAge;
+  selectedHeight;
+  selectedWeight;
+  systole;
+  diastole;
 
   constructor() { }
 
