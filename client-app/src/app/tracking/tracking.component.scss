@@ -1,4 +1,4 @@
-.jqx-chart-legend-text {
+.jqx-chart-legend-text:last-child {
     display: none !important;
 }
 
@@ -9,5 +9,10 @@
 }
 
 .chart-section-label {
-    font-size: 1.2rem;
+    @media (max-width: 767px) {
+        font-size: 1rem;
+    }
+    @media (min-width: 768px) {
+        font-size: 1.4rem;   
+    }
 }

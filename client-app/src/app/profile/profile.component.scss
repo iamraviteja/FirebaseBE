@@ -7,12 +7,23 @@
     justify-items: flex-start;
 }
 
-.blood-pressure-systole-input, .blood-pressure-diastole-input {
-    width: 30rem;
+.profile-header-label {
+    @media (max-width: 767px) {
+        font-size: 1.4rem;
+        line-height: 1.25;
+    }
 }
 
-.blood-pressure-diastole-input {
-    margin-left: 2rem;
+.type-of-chronic-disease-label {
+    @media (max-width: 767px) {
+        font-size: 0.8rem;
+    }
+}
+
+.blood-pressure-systole-input, .blood-pressure-diastole-input {
+    @media (min-width: 768px) {
+        width: 30rem;
+    }
 }
 
 mat-form-field {
@@ -30,15 +41,16 @@ mat-form-field {
 .hint-text {
     font-style: italic;
     font-size: 11px;
-    margin-left: 0.5rem;
     color: green;
 }
 
 .save-profile-info {
     text-align: center;
-    margin-top: 1rem;
+    margin: 1rem auto;
 }
 
 .save-profile-info-btn {
-    width: 35rem;
+    @media (min-width: 767px) {
+        width: 35rem;
+    }
 }
